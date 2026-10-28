@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #0b1020;
+  --color-surface: #111827;
+  --color-panel: #151c30;
+  --color-brand: #8b5cf6;
+  --color-glow: #22d3ee;
+  --color-ink: #f8fafc;
+  --color-muted: #94a3b8;
+  --color-line: #273449;
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--color-night);
+    background-image:
+      radial-gradient(60rem 30rem at 85% -10%, rgba(139, 92, 246, 0.12), transparent 60%),
+      radial-gradient(50rem 28rem at -10% 20%, rgba(34, 211, 238, 0.06), transparent 60%);
+    background-attachment: fixed;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.45);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-glow);
+    outline-offset: 2px;
+  }
+
+  img { max-width: 100%; }
+}
+
+/* Gradient used to highlight selected words */
+.text-gradient {
+  background-image: linear-gradient(90deg, #8b5cf6 0%, #60a5fa 50%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
